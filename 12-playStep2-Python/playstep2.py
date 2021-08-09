@@ -35,4 +35,40 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	
+	hand2=list(map(int,str(hand)))
+	dice2=list(map(int,str(dice)))
+	c=[0]*6
+	h=[]
+	n=[]
+	for i in hand2:
+		c[i]+=1
+	for i in c:
+		if i>=2:
+			req=hand2[i]
+	if 2 in c:
+		l=[req]*2
+		l.append(dice2[-1])
+		l.sort(reverse=True)
+		res="".join(map(str,l))
+		hand3=int(res)
+		l2=dice2[:len(dice2)-1]
+		res3="".join(map(str,l2))
+		dice3=int(res3)
+	else:
+		m=max(hand2)
+		h.append(m)
+		h.append(dice2[-1])
+		h.append(dice2[-2])
+		h.sort(reverse=True)
+		res="".join(map(str,h))
+		hand3=int(res)
+		n=dice2[0:len(dice2)-2]
+		res3="".join(map(str,n))
+		dice3=int(res3)
+	return hand3,dice3
+	
+	
+
+		
+	
