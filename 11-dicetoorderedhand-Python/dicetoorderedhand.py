@@ -15,4 +15,4 @@ def dicetoorderedhand(a, b, c):
 	res=[a,b,c]
 	res.sort(reverse=True)
 	res2=''.join(map(str,res))
-	return int(res2)
+	return res2
