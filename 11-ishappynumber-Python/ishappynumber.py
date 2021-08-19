@@ -17,6 +17,21 @@
 # assert(ishappynumber(404) == True)
 # assert(ishappynumber(405) == False)
 
+def square(n):
+    res = 0
+    while(n):
+        res += (n % 10) * (n % 10)
+        n = int(n / 10)
+    return res
+
 def ishappynumber(n):
-	# your code goes here
-	pass
+	temp = n
+	flag = n
+	while(True):
+		temp = square(temp)
+		flag = square(square(flag))
+		if(temp != flag):
+			continue
+		else:
+			break
+	return (temp == 1)
