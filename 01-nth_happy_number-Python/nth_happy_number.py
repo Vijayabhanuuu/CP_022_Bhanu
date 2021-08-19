@@ -15,5 +15,31 @@
 # assert(nth_happy_number(8) == 31)
 
 
+def square(n):
+	res = 0
+	while(n):
+		res += (n % 10) * (n % 10)
+		n = int(n / 10)
+	return res
+
+def isHappynumber(n):
+    x = n
+    y = n
+    while(True):
+        x = square(x)
+        y = square(square(y))
+        if(x != y):
+            continue
+        else:
+            break
+    return (x == 1)
+
+
 def nth_happy_number(n):
-	return 0
+	count=2
+	i=2
+	while(count<=n):
+		if isHappynumber(i):
+			count+=1
+		i=i+1
+	return i-1
