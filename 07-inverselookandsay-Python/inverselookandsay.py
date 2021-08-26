@@ -21,5 +21,14 @@
 # inverseLookAndSay([(2,3),(1,8),(4,3)]) == [3,3,8,3,3,3,3])
 
 def inverselookandsay(a):
-	# Your code goes here
-	pass
+    # Your code goes here
+    l = []
+    for i in a:
+        if len(i) == 0 or len(a) == 0:
+            return []
+        else:
+            n = i[0]
+            while(n > 0):
+                l.append(i[1])
+                n = n-1
+    return l
