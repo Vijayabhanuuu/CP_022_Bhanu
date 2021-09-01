@@ -15,27 +15,21 @@
 # string "None"). So, for example:
 
 def topScorer(data):
-    # Your code goes here...
-    return ""
-
-data = '''\
-Fred,10,20,30,40
-Wilma,10,20,30
-'''
-assert(topScorer(data) == 'Fred')
-
-data = '''\
-Fred,10,20,30
-Wilma,10,20,30,40
-'''
-assert(topScorer(data) == 'Wilma')
-
-data = '''\
-Fred,11,20,30
-Wilma,10,20,30,1
-'''
-assert(topScorer(data) == 'Fred,Wilma')
-
-assert(topScorer('') == None)
-print("All test cases passed...!")
-# Hint: you may want to use both splitlines() and split(',') here!
+    Fred=[]
+    Wilma=[]
+    if(data==''):
+        return None
+    x=data.splitlines()
+    for i in x:
+        s=i.split(",")
+        for j in range(1,len(s)):
+            if(s[0]=="Fred"):
+                Fred.append(int(s[j]))
+            else:
+                Wilma.append(int(s[j]))
+    if(max(Fred)>max(Wilma)):
+        return "Fred"
+    elif(max(Fred)==max(Wilma)):
+        return "Fred,Wilma"
+    else:
+        return "Wilma"
